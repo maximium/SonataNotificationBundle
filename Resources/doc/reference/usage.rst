@@ -11,14 +11,15 @@ Calling an existing consumer
     $backend = $container->get('sonata.notification.backend');
 
     // create and publish a message
-    $backend->createAndPublish('email', array(
+    $backend->createAndPublish('mailer', array(
         'from' => array(
             'email' => 'no-reply@sonata-project.org',
             'name'  => 'No Reply'
         ),
         'to'   => array(
-            array('email' => 'myuser@example.org', 'name'  => 'My User'),
-            array('email' => 'myuser1@example.org', 'name'  => 'My User 1'),
+            'myuser@example.org' => 'My User Name',
+            'myuser1@example.org' => 'My User1 Name',
+            'myuser2@example.org'
         ),
         'message' => array(
             'html' => '<b>hello</b>',
